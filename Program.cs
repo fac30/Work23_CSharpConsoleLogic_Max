@@ -1,5 +1,13 @@
-﻿string[] names = { "Alex", "Eddie", "David", "Michael" };
-for (int i = 0; i < names.Length; i++)
-    if (names[i] == "David") names[i] = "Sammy";
-
-foreach (var name in names) Console.WriteLine(name);
+﻿for (int num = 1; num <= 100; num++)
+{
+    Console.Write(num);
+    bool divisibleByThree = (num % 3 == 0);
+    bool divisibleByFive = (num % 5 == 0);
+    if (divisibleByThree || divisibleByFive)
+        Console.Write(" - ");
+    if (divisibleByThree)
+        Console.Write("Fizz");
+    if (divisibleByFive)
+        Console.Write("Buzz");
+    Console.Write($"\n");
+}
