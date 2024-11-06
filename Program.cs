@@ -1,15 +1,10 @@
-﻿string permission = "Admin|Manager";
-int level = 19;
+﻿bool flag = true;
+int value = 0;
 
-if (permission == "Admin")
+if (flag)
 {
-    Console.WriteLine((level > 55)? "Welcome, Super Admin user.": "Welcome, Admin user.");
+    Console.WriteLine($"Inside the code block: {value}");
 }
-else if (permission == "Manager")
-{
-    Console.WriteLine((level >= 20)? "Contact an Admin for access.": "You do not have sufficient privileges.");
-}
-else
-{
-    Console.WriteLine("You do not have sufficient privileges.");
-}
+
+value = 10;
+Console.WriteLine($"Outside the code block: {value}");
