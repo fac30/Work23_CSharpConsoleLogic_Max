@@ -1,4 +1,4 @@
-﻿int saleAmount = 1001;
-// int discount = saleAmount > 1000 ? 100 : 50;
+﻿Random coinFLipper = new();
+int isHeads = coinFLipper.Next(2);
 
-Console.WriteLine($"Discount: {(saleAmount > 1000 ? 100 : 50)}");
+Console.WriteLine((isHeads == 0)? "tails": "heads");
