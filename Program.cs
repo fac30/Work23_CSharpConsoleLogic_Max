@@ -1,4 +1,15 @@
-﻿Random coinFLipper = new();
-int isHeads = coinFLipper.Next(2);
+﻿string permission = "Admin|Manager";
+int level = 19;
 
-Console.WriteLine((isHeads == 0)? "tails": "heads");
+if (permission == "Admin")
+{
+    Console.WriteLine((level > 55)? "Welcome, Super Admin user.": "Welcome, Admin user.");
+}
+else if (permission == "Manager")
+{
+    Console.WriteLine((level >= 20)? "Contact an Admin for access.": "You do not have sufficient privileges.");
+}
+else
+{
+    Console.WriteLine("You do not have sufficient privileges.");
+}
