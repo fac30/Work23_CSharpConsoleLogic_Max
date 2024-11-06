@@ -1,15 +1,15 @@
-﻿int[] numbers = [4, 8, 15, 16, 23, 42];
-int total = 0;
-bool found = false;
+﻿int employeeLevel = 200;
+string employeeName = "John Smith";
 
-foreach (int number in numbers)
+string title = "";
+
+title = employeeLevel switch
 {
-    total += number;
-    if (number == 42)
-       found = true;
-}
+    100 => "Junior Associate",
+    200 => "Senior Associate",
+    300 => "Manager",
+    400 => "Senior Manager",
+    _ => "Associate",
+};
 
-if (found)
-    Console.WriteLine("Set contains 42");
-
-Console.WriteLine($"Total: {total}");
+Console.WriteLine($"{employeeName}, {title}");
