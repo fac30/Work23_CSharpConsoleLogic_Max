@@ -1,29 +1,21 @@
-﻿string? roleName;
-bool isValidInput = false;
-string instruction = "Enter your role name (Administrator, Manager, or User).";
+﻿string[] myStrings = ["I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices"];
 
-Console.WriteLine(instruction);
+int periodLocation = 0;
 
-do
+for (int i = 0; i < myStrings.Length; i++)
 {
-    roleName = Console.ReadLine();
-    if (roleName != null)
+    string myString = myStrings[i];
+    periodLocation = myString.IndexOf('.');
+    string consoleLine;
+    
+    while (periodLocation != -1)
     {
-        string roleNameProcessed = roleName.Trim().ToLower();
-        if (roleNameProcessed == "administrator" || roleNameProcessed == "manager" || roleNameProcessed == "user")
-        {
-            isValidInput = true;
-        }
-        else
-        {
-            Console.WriteLine($"The role name that you entered, \"{roleName}\" is not valid. {instruction}");
-        }
+        consoleLine = myString.Remove(periodLocation);
+        myString = myString.Substring(periodLocation + 1);
+        myString = myString.TrimStart();
+        periodLocation = myString.IndexOf('.');
+        Console.WriteLine(consoleLine);
     }
-    else
-    {
-        Console.WriteLine($"Invalid input. {instruction}");
-    }
-}
-while (!isValidInput);
 
-Console.WriteLine($"Your input value ({roleName}) has been accepted.");
+    Console.WriteLine(myString.Trim());
+}
