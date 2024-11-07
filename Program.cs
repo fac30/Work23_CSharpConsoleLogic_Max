@@ -328,7 +328,38 @@ do
 
         case "4":
             // Ensure animal nicknames and personality descriptions are complete
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    animalID = ourAnimals[i, 0];
+
+                    for (int j = 3; j <= 5; j += 2)
+                    {
+                        string animalProperty = ourAnimals[i, j].Substring(ourAnimals[i, j].IndexOf(": ") + 1);
+
+                        validEntry = !string.IsNullOrWhiteSpace(animalProperty);
+
+                        while (!validEntry)
+                        {
+                            bool isNickname = j == 3;
+                            string property = isNickname ? "nickname" : "personality description";
+                            Console.WriteLine($"Enter an {property} for ID #: {animalID}{(isNickname ? "" : "(likes or dislikes, tricks, energy level)")}");
+                            readResult = Console.ReadLine();
+                            if (!string.IsNullOrWhiteSpace(readResult))
+                                animalProperty = readResult;
+                            validEntry = !string.IsNullOrWhiteSpace(animalProperty);
+                            if (isNickname)
+                                animalNickname = animalProperty;
+                            else
+                                animalPersonalityDescription = animalProperty;
+                        }
+                    }
+                    // store the pet information in the ourAnimals array (zero based)
+                    ourAnimals[i, 3] = "Nickname: " + animalNickname;
+                    ourAnimals[i, 5] = "Personality: " + animalPersonalityDescription;
+                }
+            }
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
