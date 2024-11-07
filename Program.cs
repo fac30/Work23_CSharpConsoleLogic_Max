@@ -1,16 +1,28 @@
-﻿string[] characters = ["Monster", "Hero"];
-int[] charactersHealth = [10, 10];
-Random attack = new();
-int turnCount = 0;
-int damagedIndex;
+﻿int numberInt = 0;
+bool isValidInt = false;
+bool isValidInput = false;
+
+Console.WriteLine("Enter an integer value between 5 and 10");
 
 do
 {
-    int damage = attack.Next(1, 11);
-    damagedIndex = turnCount % 2;
-    charactersHealth[damagedIndex] -= damage;
-    Console.WriteLine($"{characters[damagedIndex]} was damaged and lost {damage} health and now has {charactersHealth[damagedIndex]} health.");
-    turnCount++;
-} while (charactersHealth[0] > 0 && charactersHealth[1] > 0);
-
-Console.WriteLine($"{characters[Math.Abs(damagedIndex-1)]} wins!");
+    string? numberString = Console.ReadLine();
+    isValidInt = int.TryParse(numberString, out numberInt);
+    if (isValidInt)
+    {
+        if (numberInt < 5 || numberInt > 10)
+        {
+            Console.WriteLine($"You entered {numberInt}. Please enter a number between 5 and 10.");
+        }
+        else
+        {
+            Console.WriteLine($"Your input value ({numberInt}) has been accepted.");
+            isValidInput = true;
+        }
+    }
+    else
+    {
+        Console.WriteLine("Sorry, you entered an invalid number, please try again");
+    }
+}
+while (!isValidInput);
