@@ -16,7 +16,6 @@ do
         }
         else
         {
-            Console.WriteLine($"Your input value ({numberInt}) has been accepted.");
             isValidInput = true;
         }
     }
@@ -26,3 +25,5 @@ do
     }
 }
 while (!isValidInput);
+
+Console.WriteLine($"Your input value ({numberInt}) has been accepted.");
